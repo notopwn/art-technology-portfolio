@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 T=json.loads((ROOT/'scripts/translations.en.json').read_text())
 T.update({'언어 선택':'Language selection','한국어':'한국어'})
 PAGES=['index.html','digitaltactillity.html','findernode.html','photoeditor.html','elitecomposer.html']
-VERSION='bilingual-2'
+VERSION='copy-refine-1'
 BASE='https://notopwn.github.io/art-technology-portfolio/'
 class Translate(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=False);self.out=[]
@@ -55,6 +55,7 @@ for page in PAGES:
  p.write_text(s)
  # Translate text and accessible labels, then fix language-specific links.
  parser=Translate();parser.feed(s);en=''.join(parser.out)
+ if page=='digitaltactillity.html':en=re.sub(r'<p class="translation">.*?</p>','',en,flags=re.S)
  en=re.sub(r'<div class="language-switch".*?</div>',switch(page,True),en,flags=re.S)
  for lang,text in [('ko',s),('en',en)]:
   path=BASE+('en/' if lang=='en' else '')+page
