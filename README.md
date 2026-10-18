@@ -16,8 +16,9 @@ DigitalTactillity, FinderNode, PhotoEditor, EliteComposer를 소개하는 한국
 ## Languages
 
 Korean pages live at the repository root; their English counterparts live in `en/`.
-The language switch preserves the current project and section. Korean is the default,
-with the selected language remembered locally. PDFs and app screenshots retain their original language.
+The language switch preserves the current project and section. First visits follow the first supported language in the browser preference list;
+other languages fall back to English, and missing language information falls back to Korean.
+An explicit URL choice or a manually saved choice takes priority over browser settings. PDFs and app screenshots retain their original language.
 
 After editing Korean copy, update `scripts/translations.en.json` and run:
 

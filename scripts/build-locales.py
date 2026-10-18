@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 T=json.loads((ROOT/'scripts/translations.en.json').read_text())
 T.update({'언어 선택':'Language selection','한국어':'한국어'})
 PAGES=['index.html','digitaltactillity.html','findernode.html','photoeditor.html','elitecomposer.html']
-VERSION='bilingual-1'
+VERSION='bilingual-2'
 BASE='https://notopwn.github.io/art-technology-portfolio/'
 class Translate(HTMLParser):
  def __init__(self):super().__init__(convert_charrefs=False);self.out=[]
